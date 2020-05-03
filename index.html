@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
+
+<title>45deg Fork Ribbon</title>
+
+<style id="stl-widget-ribbon-default">
+/*****************************/
+/* fork ribbon generic rules */
+/*****************************/
+.fork {
+    box-sizing: border-box;
+    position: fixed;
+
+    display: flex; justify-content: center; align-items: center;
+
+    z-index: 999999; /* on top of everything */
+    background-color: Black; color: White;
+
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,.4);
+    opacity: 0.7;
+}
+.fork:hover { opacity: 1 }
+
+.fork a {
+    box-sizing: border-box;
+    width: 100%; padding: 0.25rem 0;
+    line-height: 1; white-space: nowrap; text-align: center;
+
+    font-weight: bold; color: inherit; text-decoration: none; 
+    border-style   : dotted;
+    border-color   : White transparent;
+}
+.fork a:before { content: attr(data-ribbon) }
+
+.fork.tr45deg  { transform-origin: top left; transform: rotate(45deg) }
+</style>
+<style id="stl-widget-ribbon-fixed-ie">
+/***************************/
+/* fork ribbon IE specific */
+/***************************/
+.fork {
+    width    : calc((5vmin    + 10.25rem) * 1.1);
+    height   : calc((0.5vmin  +  1.4rem ) * 1.1);
+    font-size: calc(0.625vmin +  0.5rem);
+}
+.fork a { border-width: 2px 0 }
+
+.fork.tr45deg {
+    top  : calc((0.5vmin + 1.4rem) / 1.4142 * 1.1 * -1);
+    right: calc((((0.5vmin + 1.4rem) / 1.4142) + (2 * (5vmin + 10.25rem) * 0.1464466)) * 1.1 * -1);
+}
+</style>
+<style id="stl-widget-ribbon-custom-variables">
+/*************************************/
+/* fork ribbon with custom variables */
+/*************************************/
+:root {
+    --fork-scale     : 1.1;
+    --fork-scale-text: 1;
+    --fork-bd        : 2px;
+
+    --fork-wm: 5    ; --fork-wb: 10.25rem;
+    --fork-hm: 0.5  ; --fork-hb: 1.4rem;
+    --fork-fm: 0.625; --fork-fb: 0.5rem;
+
+    /* do not modify */
+    --fork-x: 1vmin;
+    --sqrt-2: 1.4142;
+    --cos2  : 0.1464466;
+}
+.fork {
+    width    : calc((var(--fork-wm) * var(--fork-x) + var(--fork-wb)) * var(--fork-scale));
+    height   : calc((var(--fork-hm) * var(--fork-x) + var(--fork-hb)) * var(--fork-scale));
+    font-size: calc((var(--fork-fm) * var(--fork-x) + var(--fork-fb)) * var(--fork-scale-text));
+}
+.fork a { border-width: var(--fork-bd) 0; padding: calc(var(--fork-scale)/4 * 1rem) 0 }
+
+.fork.tr45deg {
+    top  : calc((var(--fork-hm) * var(--fork-x) + var(--fork-hb)) / var(--sqrt-2) * var(--fork-scale) * -1);
+    right: calc((((var(--fork-hm) * var(--fork-x) + var(--fork-hb)) / var(--sqrt-2)) + (2 * (var(--fork-wm) * var(--fork-x) + var(--fork-wb)) * var(--cos2))) * var(--fork-scale) * -1);
+}
+</style>
+</head>
+
+<body>
+    <span class="fork tr45deg">
+        <a rel="noopener" target="_blank" href="https://github.com/renevanderlende/ers-css-fork-ribbon" data-ribbon="Fork me at Github"></a>
+    </span>
+
+    <h3>
+        <a rel="noopener" target="_blank" title="rectangle" href="https://www.geogebra.org/material/iframe/id/ha7gmgut/width/1280/height/720/border/888888/sfsb/true/smb/true/stb/false/stbh/false/ai/false/asb/false/sri/false/rc/true/ld/true/sdz/true/ctl/false">GeoGebra graph</a>
+        of the math involved to position the top/right 45deg ribbon (click image to load)
+    </h3>
+</body>
+
+</html>
+
+
