@@ -53,36 +53,6 @@
     right: calc((((0.5vmin + 1.4rem) / 1.4142) + (2 * (5vmin + 10.25rem) * 0.1464466)) * 1.1 * -1);
 }
 </style>
-<style id="stl-widget-ribbon-custom-variables">
-/*************************************/
-/* fork ribbon with custom variables */
-/*************************************/
-:root {
-    --fork-scale     : 1.1;
-    --fork-scale-text: 1;
-    --fork-bd        : 2px;
-
-    --fork-wm: 5    ; --fork-wb: 10.25rem;
-    --fork-hm: 0.5  ; --fork-hb: 1.4rem;
-    --fork-fm: 0.625; --fork-fb: 0.5rem;
-
-    /* do not modify */
-    --fork-x: 1vmin;
-    --sqrt-2: 1.4142;
-    --cos2  : 0.1464466;
-}
-.fork {
-    width    : calc((var(--fork-wm) * var(--fork-x) + var(--fork-wb)) * var(--fork-scale));
-    height   : calc((var(--fork-hm) * var(--fork-x) + var(--fork-hb)) * var(--fork-scale));
-    font-size: calc((var(--fork-fm) * var(--fork-x) + var(--fork-fb)) * var(--fork-scale-text));
-}
-.fork a { border-width: var(--fork-bd) 0; padding: calc(var(--fork-scale)/4 * 1rem) 0 }
-
-.fork.tr45deg {
-    top  : calc((var(--fork-hm) * var(--fork-x) + var(--fork-hb)) / var(--sqrt-2) * var(--fork-scale) * -1);
-    right: calc((((var(--fork-hm) * var(--fork-x) + var(--fork-hb)) / var(--sqrt-2)) + (2 * (var(--fork-wm) * var(--fork-x) + var(--fork-wb)) * var(--cos2))) * var(--fork-scale) * -1);
-}
-</style>
 </head>
 
 <body>
